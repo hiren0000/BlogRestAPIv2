@@ -13,7 +13,7 @@ import javax.persistence.Id;
 
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
+
 @Getter
 @Setter
 public class UserRole

@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 @Entity
 @Table(name = "user_table")
 @NoArgsConstructor
+
 @Getter
 @Setter
 public class User implements UserDetails
