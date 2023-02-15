@@ -30,7 +30,8 @@ public class SwaggerConfig
     public ApiInfo getInfo()
     {
         return new ApiInfo("Blogging Application", "This project is developed by Hiren Devmurari",
-                "1.0","Terms of Service", new Contact("Hiren Devmurari", "https://hiren0000.github.io/", "hiru.devmurari@gmail.com")
+                "1.0","Terms of Service",
+                new Contact("Hiren Devmurari", "https://hiren0000.github.io/", "hiru.devmurari@gmail.com")
                 , "Licence of url ", "API licence url", Collections.emptyList());
     };
 
