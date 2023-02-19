@@ -52,6 +52,7 @@ public class PostController
         PageResponse list = this.postService.getAllPosts(pageNumber, pageSize, sortBy, sortDir);
 
         return new ResponseEntity<>(list, HttpStatus.OK);
+
     }
 
     //getting post by userId

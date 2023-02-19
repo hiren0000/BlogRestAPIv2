@@ -1,5 +1,6 @@
 package com.rebel.BlogAPIv2.controller;
 
+import com.rebel.BlogAPIv2.enitities.Comment;
 import com.rebel.BlogAPIv2.payloads.ApiResponse;
 import com.rebel.BlogAPIv2.payloads.CommentDto;
 import com.rebel.BlogAPIv2.services.CommentService;
@@ -8,8 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/")
 public class CommentController
 {
     @Autowired
@@ -17,12 +20,21 @@ public class CommentController
 
 
     // Crating new Comment
-    @PostMapping("/{poId}/comments")
-    public ResponseEntity<CommentDto> addComment(@RequestBody CommentDto commentDto, @PathVariable Integer poId)
+    @PostMapping("/users/{id}/posts/{poId}/comments")
+    public ResponseEntity<CommentDto> addComment(@RequestBody CommentDto commentDto, @PathVariable Integer id, @PathVariable Integer poId)
     {
-        CommentDto comment = this.service.addComment(commentDto, poId);
+        CommentDto comment = this.service.addComment(commentDto, id, poId);
 
         return new ResponseEntity<>(comment, HttpStatus.CREATED);
+    }
+
+    //get all the comments
+    @GetMapping("/comments")
+    public ResponseEntity<List<CommentDto>> getListOfComments()
+    {
+        List<CommentDto> comments = this.service.getALlComments();
+
+        return new ResponseEntity<List<CommentDto>>(comments, HttpStatus.FOUND);
     }
 
     //Delete Comment
